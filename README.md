@@ -1,6 +1,6 @@
 # repo — Personal Dev Toolkit
 
-> VPet AI plugin (C#) + C++ RPG game + CAD plan automation (PowerShell/Python) + Blender avatar pipeline.
+> VPet AI plugin (C#) + C++ RPG game + CAD plan automation (PowerShell/Python) + Blender avatar pipeline + local take-turns AI pipeline (Qwen/SD/video).
 > Built to be **Freebuff-ready**: clear structure, docs, build instructions, and clean history.
 
 ![license](https://img.shields.io/badge/license-MIT-green)
@@ -22,7 +22,8 @@ repo/
 │   ├── vpet-ai-plugin/    # C# .NET 8 WPF plugin for VPet-Simulator (OpenAI-compatible chat + auto actions)
 │   ├── cpp-rpg-game/      # Self-contained C++ console RPG (no deps, g++/MSVC)
 │   ├── cad-automation/    # House/hotel floor-plan PNG + DXF R12 generators (PS1 + Python)
-│   └── blender-avatar/    # Blender 3D anime-avatar build pipeline (step1-6 + base)
+│   ├── blender-avatar/    # Blender 3D anime-avatar build pipeline (step1-6 + base)
+│   └── local-pipeline/    # Local Qwen->SD->video take-turns pipeline for 6GB VRAM (FastAPI+CLI)
 ├── docs/
 │   ├── overview.md
 │   └── freebuff.md

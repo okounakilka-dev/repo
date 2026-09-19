@@ -1,0 +1,15 @@
+# Local take-turns pipeline — RTX 3050 6GB safe
+# Only ONE heavy model lives in VRAM at a time. Others are offloaded/unloaded.
+torch>=2.5
+diffusers>=0.30
+transformers>=4.44
+accelerate>=0.33
+safetensors>=0.4
+huggingface_hub>=0.23
+fastapi>=0.110
+uvicorn>=0.29
+pyyaml>=6.0
+Pillow>=10.0
+imageio>=2.34
+imageio-ffmpeg>=0.5
+numpy>=1.26

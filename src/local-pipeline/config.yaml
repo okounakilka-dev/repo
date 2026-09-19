@@ -1,0 +1,44 @@
+# Take-turns local pipeline config (RTX 3050 6GB)
+device: cuda
+dtype: fp16   # fp16 halves VRAM vs fp32
+
+llm:
+  # you had Qwen cached — keep it, not Llama
+  model_id: "Qwen/Qwen3-1.7B"
+  max_new_tokens: 256
+  temperature: 0.7
+  system_prompt: "You are a prompt engineer for image/video generation. Rewrite the user idea into one dense, visual, comma-separated prompt. No chat, only the prompt."
+
+image:
+  # default small enough for 6GB. Replace with your merged checkpoint when ready.
+  model_id: "runwayml/stable-diffusion-v1-5"
+  # option A: single custom merged file:
+  # checkpoint_path: "models/merged-3in1.safetensors"
+  checkpoint_path: null
+  # option B: merge 3 into 1 on demand (see merge_checkpoints.py):
+  merge:
+    ckpt_a: null
+    ckpt_b: null
+    ckpt_c: null
+    weights: [0.5, 0.3, 0.2]
+    out: "models/merged-3in1.safetensors"
+  steps: 25
+  guidance: 7.5
+  width: 512
+  height: 512
+
+video:
+  # direct text-to-video, 1.7B fits 6GB with offload
+  model_id: "damo-vilab/text-to-video-ms-1.7b"
+  num_frames: 24
+  steps: 25
+  guidance: 9.0
+  width: 512
+  height: 512
+
+server:
+  host: "127.0.0.1"
+  port: 8000
+
+outputs:
+  dir: "outputs"

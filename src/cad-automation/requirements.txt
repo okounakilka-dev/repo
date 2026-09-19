@@ -1,0 +1,3 @@
+# Python deps — stdlib only by design (no pip install needed for evaluation)
+# If you add deps later, pin them here, e.g.:
+# ezdxf==1.3.0

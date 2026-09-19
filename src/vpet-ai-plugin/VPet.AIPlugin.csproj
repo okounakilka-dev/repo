@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="VPet-Simulator.Core">
+      <HintPath>$(VPetPath)\VPet-Simulator.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VPet-Simulator.Windows.Interface">
+      <HintPath>$(VPetPath)\VPet-Simulator.Windows.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LinePutScript">
+      <HintPath>$(VPetPath)\LinePutScript.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LinePutScript.Localization.WPF">
+      <HintPath>$(VPetPath)\LinePutScript.Localization.WPF.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Panuon.WPF.UI">
+      <HintPath>$(VPetPath)\Panuon.WPF.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Panuon.WPF">
+      <HintPath>$(VPetPath)\Panuon.WPF.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

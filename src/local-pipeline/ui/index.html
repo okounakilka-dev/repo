@@ -1,0 +1,18 @@
+<!doctype html><html><body style="font-family:sans-serif;max-width:700px;margin:40px auto">
+<h2>Local take-turns pipeline</h2>
+<p>LLM betters prompt -> image gen -> video gen. One model in VRAM at a time.</p>
+<textarea id="p" rows="3" style="width:100%">a cozy cabin in snow, warm lights</textarea><br><br>
+<label><input type="checkbox" id="img" checked> image</label>
+<label><input type="checkbox" id="vid" checked> video</label>
+<button onclick="go()">Generate</button>
+<pre id="o"></pre>
+<script>
+async function go(){
+  document.getElementById('o').textContent='queued... (models take turns, watch terminal)';
+  const r=await fetch('/generate',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({prompt:document.getElementById('p').value,
+      do_image:document.getElementById('img').checked,
+      do_video:document.getElementById('vid').checked})});
+  document.getElementById('o').textContent=JSON.stringify(await r.json(),null,2);
+}
+</script></body></html>

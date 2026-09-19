@@ -1,0 +1,26 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: C++ build (RPG game)
+        run: g++ src/cpp-rpg-game/main.cpp -o rpg-game -std=c++17 -Wall
+
+      - name: Python syntax check (CAD + Blender)
+        run: |
+          python -m py_compile src/cad-automation/gen_dxf.py src/cad-automation/gen_elec_dxf.py src/cad-automation/gen_hotel_dxf.py src/cad-automation/gen_hotel_elec_utils.py src/blender-avatar/anime_girl_base.py src/blender-avatar/blend_step1.py src/blender-avatar/blend_step2.py src/blender-avatar/blend_step3.py src/blender-avatar/blend_step4.py src/blender-avatar/blend_step5.py src/blender-avatar/blend_step6.py
+
+      - name: Ensure no junk tracked
+        shell: pwsh
+        run: |
+          $bad = git ls-files | Select-String -Pattern '^(bin/|obj/|node_modules/|__pycache__/|\.venv/)|\.blend1$|\.log$' | Select-Object -ExpandProperty Line
+          if ($bad) { Write-Error "Junk files tracked:`n$bad"; exit 1 }
+          Write-Output "Clean: no junk tracked"
