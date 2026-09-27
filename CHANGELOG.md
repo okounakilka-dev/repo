@@ -2,6 +2,14 @@
 
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/) + SemVer.
 
+## [Unreleased]
+### Removed
+- `src/vpet-ai-plugin` (VPet-Simulator AI plugin) + all VPet references in README/docs
+  (README tagline/structure/quickstart/stack table, `AGENTS.md` layout, `docs/overview.md`, `knowledge.md`, `assets/README.md`)
+- `src/cpp-rpg-game` (C++ console RPG) + references (README, `docs/overview.md`, CI C++ build step)
+- `src/blender-avatar` (Blender anime-avatar pipeline) + references (README, `docs/overview.md`, CI syntax check)
+- Retired `.NET`/C#/C++ mentions in `CONTRIBUTING.md` code style, `knowledge.md`, repo description/topics
+
 ## [0.2.0] - 2026-09-19
 ### Added
 - Organized monorepo layout: `src/vpet-ai-plugin`, `src/cpp-rpg-game`, `src/cad-automation`, `src/blender-avatar`
