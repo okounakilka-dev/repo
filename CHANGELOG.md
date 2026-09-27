@@ -2,6 +2,11 @@
 
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/) + SemVer.
 
+## [Unreleased]
+### Added
+- `src/brave-cli`: agent-friendly CLI for Brave Browser (Playwright CDP, `--json` output, snapshot refs, click/fill/shot/text)
+- `src/obs-cli`: agent-friendly CLI for OBS Studio (obs-websocket v5, scenes/sources/switch/stream/record)
+
 ## [0.2.0] - 2026-09-19
 ### Added
 - Organized monorepo layout: `src/vpet-ai-plugin`, `src/cpp-rpg-game`, `src/cad-automation`, `src/blender-avatar`
