@@ -1,0 +1,9 @@
+{
+  "name": "brave-cli",
+  "version": "1.0.0",
+  "description": "Agent-friendly CLI for Brave Browser via Playwright CDP",
+  "type": "module",
+  "dependencies": {
+    "playwright": "^1.63.0"
+  }
+}
