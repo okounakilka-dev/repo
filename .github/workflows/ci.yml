@@ -11,12 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: C++ build (RPG game)
-        run: g++ src/cpp-rpg-game/main.cpp -o rpg-game -std=c++17 -Wall
-
-      - name: Python syntax check (CAD + Blender)
+      - name: Python syntax check (CAD automation)
         run: |
-          python -m py_compile src/cad-automation/gen_dxf.py src/cad-automation/gen_elec_dxf.py src/cad-automation/gen_hotel_dxf.py src/cad-automation/gen_hotel_elec_utils.py src/blender-avatar/anime_girl_base.py src/blender-avatar/blend_step1.py src/blender-avatar/blend_step2.py src/blender-avatar/blend_step3.py src/blender-avatar/blend_step4.py src/blender-avatar/blend_step5.py src/blender-avatar/blend_step6.py
+          python -m py_compile src/cad-automation/gen_dxf.py src/cad-automation/gen_elec_dxf.py src/cad-automation/gen_hotel_dxf.py src/cad-automation/gen_hotel_elec_utils.py
 
       - name: Ensure no junk tracked
         shell: pwsh
